@@ -4,4 +4,5 @@ export const colors = {
   success: "#00C48C",
   info: "#6979F8",
   darK: "#3F3356",
+  gray: "#E4E4E4",
 };
