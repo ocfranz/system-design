@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     }
     *{
         box-sizing: border-box;
+        font-family: 'Overpass', sans-serif;
     }
 
     body{

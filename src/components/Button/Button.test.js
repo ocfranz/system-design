@@ -1,17 +1,17 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Button from "./Button";
 
+import Button from "./Button";
 describe("<Button />", () => {
   it("Renders <Button /> correctly", () => {
-    const { getByText } = render(
+    const { container } = render(
       <Button
-        children="Simple button"
+        children="Button"
         handleOnClick={() => {
           console.log();
         }}
       />
     );
-    expect(getByText("Simple button")).toBeInTheDocument();
+    expect(container.querySelector("button")).not.toBeNull();
   });
 });

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Helmet } from "react-helmet";
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -8,6 +9,12 @@ import GlobalStyles from "./styles/globalStyles";
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
+    <Helmet>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap"
+        rel="stylesheet"
+      />
+    </Helmet>
     <App />
   </React.StrictMode>,
   document.getElementById("root")

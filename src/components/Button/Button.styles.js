@@ -13,6 +13,10 @@ const ButtonStyled = styled.button`
   outline: 0;
   text-transform: capitalize;
   font-size: 16px;
+  opacity: ${(props) => {
+    if (props.disabled) return "0.5";
+    return "1";
+  }};
   background-color: ${(props) => {
     if (props.outline) return "transparent";
     if (props.secondary) return colors.secondary;
@@ -28,5 +32,11 @@ const ButtonStyled = styled.button`
     if (props.outline) return `1px solid ${colors.info}`;
     return "none";
   }};
+  pointer-events: ${(props) => {
+    if (props.disabled) return "none";
+    return "all";
+  }};
+  filter: drop-shadow(0px 4px 4px rgba(50, 50, 71, 0.08)),
+    drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06));
 `;
 export { ButtonStyled };
