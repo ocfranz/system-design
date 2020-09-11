@@ -8,6 +8,8 @@ const Admin = () => {
     value: "value",
     success: "Success",
     error: "Error",
+    labeled_default: "",
+    labeled_error: "Error",
   });
   const handleOnInputChange = (event, id) => {
     switch (id) {
@@ -22,6 +24,12 @@ const Admin = () => {
         break;
       case "error-input":
         setInputValues({ ...inputValues, error: event.target.value });
+        break;
+      case "labeled-default-input":
+        setInputValues({ ...inputValues, labeled_default: event.target.value });
+        break;
+      case "labeled-error-input":
+        setInputValues({ ...inputValues, labeled_error: event.target.value });
         break;
       default:
         throw new Error("Error input id");
@@ -85,6 +93,27 @@ const Admin = () => {
             value={inputValues.error}
             error={true}
             onChange={(e) => handleOnInputChange(e, "error-input")}
+          />
+        </div>
+      </div>
+      <div>
+        <AdminHeading children="Text inputs with labels" />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Input
+            id="labeled-input"
+            labeled={true}
+            label="Username"
+            value={inputValues.labeled_default}
+            onChange={(e) => handleOnInputChange(e, "labeled-default-input")}
+            placeholder="Username"
+          />
+          <Input
+            id="labeled-input"
+            labeled={true}
+            label="Username"
+            value={inputValues.labeled_error}
+            onChange={(e) => handleOnInputChange(e, "labeled-error-input")}
+            error={true}
           />
         </div>
       </div>

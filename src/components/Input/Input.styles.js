@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
-const InputWrapper = styled.div``;
+const InputWrapper = styled.div`
+  ${(props) => (props.labeled ? "display: flex; flex-direction: column;" : "")}
+`;
 
 const InputLabel = styled.label`
-  visibility: hidden;
+  visibility: ${(props) => (props.labeled ? "visible" : "hidden")};
+  font-size: 15px;
+  padding-bottom: 5px;
+  display: ${(props) => (props.labeled ? "block" : "none")};
 `;
 const InputStyled = styled.input`
   box-sizing: border-box;
