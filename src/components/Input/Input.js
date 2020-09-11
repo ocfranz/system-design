@@ -8,6 +8,7 @@ import {
 } from "./Input.styles";
 const Input = ({
   id,
+  type,
   value,
   onChange,
   placeholder,
@@ -24,6 +25,7 @@ const Input = ({
         {label}
       </InputLabel>
       <InputStyled
+        type={type}
         value={value}
         id={id}
         onChange={onChange}
@@ -44,9 +46,11 @@ Input.defaultProps = {
   label: "Label",
   message: "",
   showMessage: false,
+  type: "text",
 };
 Input.propTypes = {
   id: PropTypes.string.isRequired,
+  type: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   labeled: PropTypes.bool,

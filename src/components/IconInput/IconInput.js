@@ -13,6 +13,7 @@ import { colors } from "../../styles/colors";
 const IconInput = ({
   childrenIcon,
   id,
+  type,
   value,
   onChange,
   label,
@@ -31,6 +32,7 @@ const IconInput = ({
         {!error && !success && childrenIcon}
         <IconInputStyled
           value={value}
+          type={type}
           id={id}
           onChange={onChange}
           placeholder={placeholder}
@@ -49,9 +51,13 @@ const IconInput = ({
     </IconInputWrapper>
   );
 };
+IconInput.defaultProps = {
+  type: "text",
+};
 
 IconInput.propTypes = {
   childrenIcon: PropTypes.element.isRequired,
+  type: PropTypes.string,
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
