@@ -1,6 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { InputWrapper, InputLabel, InputStyled } from "./Input.styles";
+import {
+  InputWrapper,
+  InputLabel,
+  InputStyled,
+  InputMessage,
+} from "./Input.styles";
 const Input = ({
   id,
   value,
@@ -10,6 +15,8 @@ const Input = ({
   success,
   label,
   labeled,
+  message,
+  showMessage,
 }) => {
   return (
     <InputWrapper>
@@ -24,6 +31,9 @@ const Input = ({
         error={error}
         success={success}
       />
+      <InputMessage showMessage={showMessage} error={error} success={success}>
+        {message}
+      </InputMessage>
     </InputWrapper>
   );
 };
@@ -32,6 +42,8 @@ Input.defaultProps = {
   placeholder: "",
   labeled: false,
   label: "Label",
+  message: "",
+  showMessage: false,
 };
 Input.propTypes = {
   id: PropTypes.string.isRequired,
@@ -39,6 +51,8 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   labeled: PropTypes.bool,
   label: PropTypes.string,
+  message: PropTypes.string,
+  showMessage: PropTypes.bool,
 };
 
 export default Input;

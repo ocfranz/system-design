@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Button from "../../components/Button";
 import AdminHeading from "../../components/AdminHeading";
 import Input from "../../components/Input";
+
+import InputWithIcon from "../../modules/InputWithIcon";
 const Admin = () => {
   const [inputValues, setInputValues] = useState({
     default: "",
@@ -10,6 +12,8 @@ const Admin = () => {
     error: "Error",
     labeled_default: "",
     labeled_error: "Error",
+    labeled_error_message: "Error",
+    labeled_success_message: "Success",
   });
   const handleOnInputChange = (event, id) => {
     switch (id) {
@@ -30,6 +34,18 @@ const Admin = () => {
         break;
       case "labeled-error-input":
         setInputValues({ ...inputValues, labeled_error: event.target.value });
+        break;
+      case "labeled-error-message-input":
+        setInputValues({
+          ...inputValues,
+          labeled_error_message: event.target.value,
+        });
+        break;
+      case "labeled-success-message-input":
+        setInputValues({
+          ...inputValues,
+          labeled_success_message: event.target.value,
+        });
         break;
       default:
         throw new Error("Error input id");
@@ -113,10 +129,55 @@ const Admin = () => {
             label="Username"
             value={inputValues.labeled_error}
             onChange={(e) => handleOnInputChange(e, "labeled-error-input")}
+          />
+          <Input
+            id="labeled-input"
+            labeled={true}
+            label="Username"
+            value={inputValues.labeled_error}
+            onChange={(e) => handleOnInputChange(e, "labeled-error-input")}
             error={true}
+          />
+          <Input
+            id="labeled-input"
+            labeled={true}
+            label="Username"
+            value={inputValues.labeled_error}
+            onChange={(e) => handleOnInputChange(e, "labeled-error-input")}
+            success={true}
           />
         </div>
       </div>
+      <div>
+        <AdminHeading children="Text inputs with labels and message" />
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <Input
+            id="labeled-input"
+            labeled={true}
+            label="Username"
+            value={inputValues.labeled_error_message}
+            onChange={(e) =>
+              handleOnInputChange(e, "labeled-error-message-input")
+            }
+            error={true}
+            showMessage={true}
+            message="Error notification"
+          />
+          <Input
+            id="labeled-input"
+            labeled={true}
+            label="Username"
+            value={inputValues.labeled_success_message}
+            onChange={(e) =>
+              handleOnInputChange(e, "labeled-success-message-input")
+            }
+            success={true}
+            showMessage={true}
+            message="Positive message"
+          />
+        </div>
+      </div>
+      <InputWithIcon />
     </div>
   );
 };

@@ -4,20 +4,31 @@ import {
   IconInputLabel,
   IconInputWrapper,
   IconInputStyled,
+  IconInputMessage,
+  IconInputContainer,
 } from "./IconInput.styles";
+import ErrorIcon from "./ErrorIcon";
+import SuccessIcon from "./SuccessIcon";
+import { colors } from "../../styles/colors";
 const IconInput = ({
   childrenIcon,
   id,
   value,
   onChange,
+  label,
   placeholder,
   error,
   success,
+  showMessage,
+  message,
 }) => {
   return (
     <IconInputWrapper>
-      <IconInputLabel>
-        {childrenIcon}
+      <IconInputLabel>{label}</IconInputLabel>
+      <IconInputContainer error={error} success={success}>
+        {error && <ErrorIcon color={colors.error} />}
+        {success && <SuccessIcon color={colors.success} />}
+        {!error && !success && childrenIcon}
         <IconInputStyled
           value={value}
           id={id}
@@ -26,13 +37,21 @@ const IconInput = ({
           error={error}
           success={success}
         />
-      </IconInputLabel>
+      </IconInputContainer>
+
+      <IconInputMessage
+        showMessage={showMessage}
+        error={error}
+        success={success}
+      >
+        {message}
+      </IconInputMessage>
     </IconInputWrapper>
   );
 };
 
 IconInput.propTypes = {
-  childrenIcon : PropTypes.element.isRequired,
+  childrenIcon: PropTypes.element.isRequired,
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,

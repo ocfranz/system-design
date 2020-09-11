@@ -62,4 +62,15 @@ const InputStyled = styled.input`
   }
 `;
 
-export { InputWrapper, InputLabel, InputStyled };
+const InputMessage = styled.span`
+  color: ${(props) => {
+    if (props.error) return colors.error;
+    return colors.success;
+  }};
+  display: block;
+  padding: 5px 0px 0px 0px;
+  font-size: 15px;
+  display: ${(props) => (props.showMessage ? " block" : "none")};
+`;
+
+export { InputWrapper, InputLabel, InputStyled, InputMessage };
