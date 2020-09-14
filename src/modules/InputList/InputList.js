@@ -98,7 +98,7 @@ const InputList = ({}) => {
           success={true}
           labeled={true}
           label="Username"
-          message="Positive message"
+          message="Correct value"
           showMessage={true}
         />
         <Input
@@ -111,7 +111,7 @@ const InputList = ({}) => {
           error={true}
           labeled={true}
           label="Username"
-          message="Negative message"
+          message="Wrong value"
           showMessage={true}
         />
       </div>

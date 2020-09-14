@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
+import { extensions } from "../../styles/minxins";
 
 const InputLabel = styled.label`
   visibility: ${(props) => (props.labeled ? "visible" : "hidden")};
@@ -25,27 +26,45 @@ const InputStyled = styled.input`
     if (props.error) return `1px solid ${colors.error}`;
     return "1px solid rgba(228, 228, 228, 0.6)";
   }};
+
   &:hover {
-    filter: ${(props) => {
+    ${(props) => {
       if (props.success)
-        return "drop-shadow(0px 8px 8px rgba(0, 196, 140, 0.08))";
+        return extensions(
+          "filter",
+          "drop-shadow(0px 8px 8px rgba(0, 196, 140, 0.08))"
+        );
       if (props.error)
-        return "drop-shadow(0px 8px 8px rgba(255, 100, 124, 0.08))";
-      return "drop-shadow(0px 4px 4px rgba(50, 50, 71, 0.08)) drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06))";
-    }};
+        return extensions(
+          "filter",
+          "drop-shadow(0px 8px 8px rgba(255, 100, 124, 0.08))"
+        );
+      return extensions(
+        "filter",
+        "drop-shadow(0px 4px 4px rgba(50, 50, 71, 0.08)) drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06))"
+      );
+    }}
   }
   &:focus {
     outline: none;
     box-shadow: none;
-    filter: ${(props) => {
+    ${(props) => {
       if (props.success)
-        return "drop-shadow(0px 8px 8px rgba(0, 196, 140, 0.08))";
+        return extensions(
+          "filter",
+          "drop-shadow(0px 8px 8px rgba(0, 196, 140, 0.08))"
+        );
       if (props.error)
-        return "drop-shadow(0px 8px 8px rgba(255, 100, 124, 0.08))";
-      return "drop-shadow(0px 4px 4px rgba(50, 50, 71, 0.08)) drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06))";
-    }};
+        return extensions(
+          "filter",
+          "drop-shadow(0px 8px 8px rgba(255, 100, 124, 0.08))"
+        );
+      return extensions(
+        "filter",
+        "drop-shadow(0px 4px 4px rgba(50, 50, 71, 0.08)) drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06))"
+      );
+    }}
   }
-
   ::placeholder {
     color: ${colors.gray};
     text-transform: capitalize;

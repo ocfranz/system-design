@@ -31,6 +31,7 @@ const Input = ({
   showMessage,
   icon,
   childrenIcon,
+  autofocus,
 }) => {
   let input = (
     <InputStyled
@@ -42,6 +43,7 @@ const Input = ({
       error={error}
       success={success}
       spellCheck={false}
+      autoFocus={autofocus}
     />
   );
   if (icon)
@@ -59,6 +61,7 @@ const Input = ({
           error={error}
           success={success}
           spellCheck={false}
+          autoFocus={autofocus}
         />
       </IconWrapper>
     );
@@ -84,6 +87,7 @@ Input.defaultProps = {
   showMessage: false,
   type: "text",
   icon: false,
+  autofocus: false,
 };
 Input.propTypes = {
   id: PropTypes.string.isRequired,
@@ -96,6 +100,7 @@ Input.propTypes = {
   icon: PropTypes.bool,
   childrenIcon: PropTypes.element,
   showMessage: PropTypes.bool,
+  autofocus: PropTypes.bool,
 };
 
 export default Input;
