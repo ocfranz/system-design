@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
-const InputWrapper = styled.div`
-  ${(props) => (props.labeled ? "display: flex; flex-direction: column;" : "")}
-`;
 
 const InputLabel = styled.label`
   visibility: ${(props) => (props.labeled ? "visible" : "hidden")};
@@ -16,6 +13,7 @@ const InputStyled = styled.input`
   padding: 16px 20px;
   font-size: 16px;
   line-height: 18px;
+  width: 100%;
   font-weight: normal;
   color: ${(props) => {
     if (props.error) return colors.error;
@@ -73,4 +71,22 @@ const InputMessage = styled.span`
   display: ${(props) => (props.showMessage ? " block" : "none")};
 `;
 
-export { InputWrapper, InputLabel, InputStyled, InputMessage };
+const IconInputStyled = styled(InputStyled)`
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: normal;
+  margin-left: 10px;
+  border: none;
+  box-shadow: none;
+  padding: 0px;
+  outline: none;
+  filter: initial;
+  &:hover {
+    filter: initial;
+  }
+  &:focus {
+    filter: initial;
+  }
+`;
+
+export { InputLabel, InputStyled, InputMessage, IconInputStyled };

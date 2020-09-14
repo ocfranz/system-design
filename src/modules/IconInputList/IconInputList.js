@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import MailIcon from "./MailIcon";
 
-import IconInput from "../../components/IconInput";
+import Icon from "../../components/Input";
 import AdminHeading from "../../components/AdminHeading";
 const InputWithIcon = (props) => {
   const [values, setValues] = useState({
@@ -36,34 +36,37 @@ const InputWithIcon = (props) => {
           paddingBottom: "20px",
         }}
       >
-        <IconInput
+        <Icon
           id="default-input"
           label="mail"
           value={values.input_icon_default}
           onChange={(e) => handleOnInputChange(e, "default-input")}
           childrenIcon={<MailIcon />}
+          icon={true}
           placeholder="Email"
         />
-        <IconInput
+        <Icon
           id="default-input"
           label="mail"
           value={values.input_icon_success}
           onChange={(e) => handleOnInputChange(e, "default-input-success")}
           childrenIcon={<MailIcon />}
           success={true}
+          icon={true}
           placeholder="Email"
         />
-        <IconInput
+        <Icon
           id="default-input"
           label="mail"
           value={values.input_icon_error}
           onChange={(e) => handleOnInputChange(e, "default-input-error")}
           childrenIcon={<MailIcon />}
           error={true}
+          icon={true}
           placeholder="Email"
         />
       </div>
-      <AdminHeading children="Text inputs with icons" />
+      <AdminHeading children="Text inputs with icons and feedback messages" />
       <div
         style={{
           display: "flex",
@@ -71,15 +74,16 @@ const InputWithIcon = (props) => {
           paddingBottom: "20px",
         }}
       >
-        <IconInput
+        <Icon
           id="default-input"
           label="mail"
           value={values.input_icon_default}
           onChange={(e) => handleOnInputChange(e, "default-input")}
           childrenIcon={<MailIcon />}
+          icon={true}
           placeholder="Email"
         />
-        <IconInput
+        <Icon
           id="default-input"
           label="mail"
           value={values.input_icon_success}
@@ -87,10 +91,11 @@ const InputWithIcon = (props) => {
           childrenIcon={<MailIcon />}
           success={true}
           showMessage={true}
+          icon={true}
           message="Correct email"
           placeholder="Email"
         />
-        <IconInput
+        <Icon
           id="default-input"
           label="mail"
           value={values.input_icon_error}
@@ -98,6 +103,7 @@ const InputWithIcon = (props) => {
           childrenIcon={<MailIcon />}
           error={true}
           showMessage={true}
+          icon={true}
           message="Incorrect email"
           placeholder="Email"
         />
