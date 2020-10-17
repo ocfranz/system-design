@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Input from "../../components/Input";
 import AdminHeading from "../../components/AdminHeading";
 const InputList = ({}) => {
-  const [inputValues, setInputValues] = useState({
+  const [inputValues, setInputValues] = React.useState({
     default: "",
     value: "value",
     success: "Success",

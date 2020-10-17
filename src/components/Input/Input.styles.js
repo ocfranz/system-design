@@ -7,6 +7,7 @@ const InputLabel = styled.label`
   font-size: 15px;
   padding-bottom: 5px;
   display: ${(props) => (props.labeled ? "block" : "none")};
+  font-family: "Overpass", sans-serif;
 `;
 const InputStyled = styled.input`
   box-sizing: border-box;
